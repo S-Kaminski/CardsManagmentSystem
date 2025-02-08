@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemZarzadzaniaKartami", "SystemZarzadzaniaKartami\SystemZarzadzaniaKartami.csproj", "{26C83B5A-4873-44A3-91E9-E257685DF8C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardManagment", "CardManagment\CardManagment.csproj", "{49362A90-DDB7-4DB7-98F5-33F19B3DBD2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26C83B5A-4873-44A3-91E9-E257685DF8C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26C83B5A-4873-44A3-91E9-E257685DF8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26C83B5A-4873-44A3-91E9-E257685DF8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26C83B5A-4873-44A3-91E9-E257685DF8C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49362A90-DDB7-4DB7-98F5-33F19B3DBD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49362A90-DDB7-4DB7-98F5-33F19B3DBD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49362A90-DDB7-4DB7-98F5-33F19B3DBD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49362A90-DDB7-4DB7-98F5-33F19B3DBD2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30E4FD7A-F46B-4FB3-AC75-9EC93C0E738D}
+	EndGlobalSection
+EndGlobal
