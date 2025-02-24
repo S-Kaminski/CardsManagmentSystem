@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CardManagment
 {
-    public class CardConnection
+    public class CardConnection : ICardConnection
     {
         private string? _serverName;
         private string? _databaseName;
@@ -68,7 +63,7 @@ namespace CardManagment
                 }
                 catch (SqlException ex)
                 {
-                    if (ex.Number == 2627) return 0; // 2627 = unique key violation code 
+                    if (ex.Number == 2627) return 0; // 2627 = unique key violation code
                     throw new Exception(ex.Message);
                 }
             }
@@ -100,7 +95,7 @@ namespace CardManagment
                 {
                     var queryResult = connection.Query<Card>(query);
                     Card result = new Card();
-                    //for getting multiple results if expecting more than one 
+                    //for getting multiple results if expecting more than one
                     //foreach(var r in queryResult)
                     //{
                     //    result.OwnerId = r.OwnerId;
@@ -115,7 +110,6 @@ namespace CardManagment
                     result.CardSerialNumber = singleResult.CardSerialNumber;
                     result.CardId = singleResult.CardId;
                     return result;
-
                 }
                 catch (Exception ex)
                 {
