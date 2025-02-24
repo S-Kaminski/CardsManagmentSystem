@@ -1,6 +1,6 @@
 # Card Management System
 
-The **Card Management System** is a C# console application designed to manage card details such as credit cards. It provides functionality to store, retrieve, update, and delete card information in a SQL Server database. The system is built using a modular approach, with a library (`CardManagment.dll`) that encapsulates the core logic for card management and database interactions, and a console application (`SystemZarzadzaniaKartami`) that provides a user interface for interacting with the system.
+The **Card Management System** is a C# console application designed to manage card details such as credit cards. It provides functionality to store, retrieve, and delete card information in a SQL Server database. The system is built using a modular approach, with a library (`CardManagment.dll`) that encapsulates the core logic for card management and database interactions, and a console application (`SystemZarzadzaniaKartami`) that provides a user interface for interacting with the system.
 
 ---
 
