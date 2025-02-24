@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CardManagment
 {
-    interface ICardConnection
+    public interface ICardConnection
     {
+        int ExecuteQuery(string query, string? connectionString = null);
+        Card SelectQuery(string query, string? connectionString = null);
+
     }
 }
