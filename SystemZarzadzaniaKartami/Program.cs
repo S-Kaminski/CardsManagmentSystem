@@ -5,18 +5,17 @@ using Dapper;
 using System.Data.Common;
 using Microsoft.IdentityModel.Tokens;
 
-
 namespace SystemZarzadzaniaKartami
 {
     internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             string appTitle = Console.Title = "System zarządzania kartami";
             Console.WriteLine($"- {appTitle} -");
 
             // !Only for development to initialize local database and table (single use)
-            //CardConnection devInit = new CardConnection("localhost", "CardsManagement"); 
+            //CardConnection devInit = new CardConnection("localhost", "CardsManagement");
             //devInit.DevInitDatabase();
 
             SystemManager systemManager = new SystemManager();
@@ -39,7 +38,7 @@ namespace SystemZarzadzaniaKartami
         {
             byte selection = 0;
             CardConnection dbConnection = new CardConnection("localhost", "CardsManagement");
-            for (;;) 
+            for (; ; )
             {
                 Console.WriteLine();
                 Console.WriteLine($@"Wybierz z listy poniżej interesującą Cię funkcję:
@@ -55,7 +54,6 @@ Numer wybranej funkcji (1-3): ");
                 }
                 catch (Exception)
                 {
-
                     Console.WriteLine("Bład podczas wybierania funkcji, wybierz porządane działanie podając cyfry z przedziału 1-3!");
                 }
 
@@ -65,7 +63,7 @@ Numer wybranej funkcji (1-3): ");
                         Card newCard = new Card();
 
                         Console.WriteLine("Wybrano > Zapisywanie karty <");
-                        for (;;)
+                        for (; ; )
                         {
                             Console.Write("Podaj numer konta: ");
                             newCard.OwnerId = Console.ReadLine();
@@ -73,8 +71,8 @@ Numer wybranej funkcji (1-3): ");
                                 break;
                             Console.Write("Numer konta nie może być pusty i może składać się tylko z cyfr..\n");
                         }
-                        
-                        for (;;)
+
+                        for (; ; )
                         {
                             Console.Write("Podaj pin do karty: ");
                             newCard.Pin = Console.ReadLine();
@@ -96,7 +94,7 @@ Numer wybranej funkcji (1-3): ");
                         if (dbConnection.ExecuteQuery(cardDetailsQuery) > 0)
                         {
                             Console.WriteLine();
-                            Console.WriteLine($@"Szczegóły dodanej karty: 
+                            Console.WriteLine($@"Szczegóły dodanej karty:
 >Numer konta właściciela: {newCard.OwnerId}
 >PIN: {newCard.Pin}
 >Numer seryjny karty: {newCard.CardSerialNumber}
@@ -116,7 +114,7 @@ Numer wybranej funkcji (1-3): ");
                             break;
                         }
                         Console.WriteLine();
-                        Console.WriteLine($@"Szczegóły znalezionej karty: 
+                        Console.WriteLine($@"Szczegóły znalezionej karty:
 >Numer konta właściciela: {cardResult.OwnerId}
 >PIN: {cardResult.Pin}
 >Numer seryjny karty: {cardResult.CardSerialNumber}
@@ -128,7 +126,7 @@ Numer wybranej funkcji (1-3): ");
                         Console.Write("Podaj numer seryjny karty do usunięcia: ");
                         var cardSerialnumber = Console.ReadLine();
                         Console.Write($"Podano seryjny numer karty: \"{cardSerialnumber}\". Czy napewno chcesz kontynuować czynność usunięcia?\n- Aby anulować, wciśnij dowolny przycisk na klawiaturze.\n- Kliknięcie [T/t] na klawiaturze zatwierdzi operację usunięcia.\nWciśnij odpowiedni przycisk do interesującej Cię akcji > ");
-                        ConsoleKeyInfo cki = Console.ReadKey( );
+                        ConsoleKeyInfo cki = Console.ReadKey();
                         if (cki.Key.ToString().ToLower() == "t")
                         {
                             if (dbConnection.ExecuteQuery(cardSerialnumber.RemoveCardToQuery()) > 0)
@@ -142,7 +140,7 @@ Numer wybranej funkcji (1-3): ");
                         else Console.WriteLine("\nAnulowano akcje usuwania karty.");
                         break;
                 }
-            }  
+            }
         }
     }
 }

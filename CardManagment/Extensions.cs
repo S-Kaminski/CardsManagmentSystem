@@ -19,6 +19,7 @@ namespace CardManagment
         {
             return $@"SELECT OwnerId, Pin, CardSerialNumber, CardId FROM dbo.[Cards] WHERE OwnerId LIKE '{searchTerm}%' OR CardSerialNumber LIKE '{searchTerm}%' OR CardId LIKE '{searchTerm}%';";
         }
+
         public static string RemoveCardToQuery(this String? cardId)
         {
             return $@"DELETE FROM dbo.[Cards] WHERE CardSerialNumber LIKE '{cardId}';";
@@ -29,7 +30,7 @@ namespace CardManagment
         /// </summary>
         /// <param name="pin">The PIN to validate. This can be null.</param>
         /// <returns>
-        /// <c>true</c> if the PIN is exactly 4 characters long and consists only of numeric digits (0-9); 
+        /// <c>true</c> if the PIN is exactly 4 characters long and consists only of numeric digits (0-9);
         /// otherwise, <c>false</c>.
         /// </returns>
         /// <remarks>
@@ -40,7 +41,7 @@ namespace CardManagment
         /// </remarks>
         public static bool PinValidation(this string? pin)
         {
-            if (pin == null || pin.Length != 4 )
+            if (pin == null || pin.Length != 4)
                 return false;
 
             foreach (char c in pin)
@@ -56,7 +57,7 @@ namespace CardManagment
         /// </summary>
         /// <param name="value">The input string to validate. This can be null or empty.</param>
         /// <returns>
-        /// <c>true</c> if the input string is not null, not empty, not whitespace, and matches the numeric pattern (contains only digits 0-9); 
+        /// <c>true</c> if the input string is not null, not empty, not whitespace, and matches the numeric pattern (contains only digits 0-9);
         /// otherwise, <c>false</c>.
         /// </returns>
         /// <remarks>
@@ -70,7 +71,5 @@ namespace CardManagment
                 return false;
             return (!String.IsNullOrEmpty(value.Trim()) && Regex.IsMatch(value, expression));
         }
-
-        
     }
 }

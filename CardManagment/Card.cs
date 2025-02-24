@@ -7,13 +7,14 @@ namespace CardManagment
         public string? OwnerId { get; set; }
         public string? Pin { get; set; }
         public string? CardSerialNumber { get; set; }
-        public  string? CardId { get; set; }
+        public string? CardId { get; set; }
         private readonly int _uniqueIdLength = 32;
 
         public Card()
         {
             CardId = GenerateUniqueCardId(_uniqueIdLength);
         }
+
         public Card(string ownerID, string pin, string cardSerialNumber, string cardID)
         {
             OwnerId = ownerID;
@@ -21,6 +22,7 @@ namespace CardManagment
             CardSerialNumber = cardSerialNumber;
             CardId = cardID;
         }
+
         public Card(string ownerID, string pin, string cardSerialNumber)
         {
             OwnerId = ownerID;
@@ -36,10 +38,9 @@ namespace CardManagment
             StringBuilder uniqueId = new StringBuilder(idLength);
             for (int i = 0; i < idLength; i++)
             {
-                uniqueId.Append(allowedCharacters[random.Next(allowedCharacters.Length-1)]);
+                uniqueId.Append(allowedCharacters[random.Next(allowedCharacters.Length - 1)]);
             }
             return uniqueId.ToString();
         }
-
     }
 }
